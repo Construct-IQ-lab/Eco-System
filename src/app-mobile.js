@@ -309,17 +309,31 @@ class MobileApp {
 
   /**
    * Make an API request
+   * 
+   * IMPORTANT: This is a MOCK/DEMO implementation!
+   * Replace with actual API implementation before production use.
+   * See API_INTEGRATION.md for detailed implementation guide.
    */
   async apiRequest(endpoint, method = 'GET', data = null) {
-    // This is a placeholder implementation
-    // In production, this would make actual API calls to your server
+    console.warn('[MobileApp] Using MOCK API - Replace with production API endpoint');
+    console.log(`[MobileApp] MOCK API ${method} ${endpoint}`, data);
     
-    console.log(`[MobileApp] API ${method} ${endpoint}`, data);
+    // TODO: Replace with actual implementation:
+    // const API_BASE = 'https://api.yourcompany.com';
+    // const response = await fetch(API_BASE + endpoint, {
+    //   method,
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'Authorization': `Bearer ${this.authToken}`
+    //   },
+    //   body: data ? JSON.stringify(data) : null
+    // });
+    // return response.json();
     
-    // Simulate network delay
+    // MOCK: Simulate network delay
     await new Promise(resolve => setTimeout(resolve, 500));
     
-    // Simulate successful response
+    // MOCK: Simulate successful response
     return {
       success: true,
       id: Math.floor(Math.random() * 10000),

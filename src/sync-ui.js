@@ -226,7 +226,9 @@ class SyncUI {
     setTimeout(() => {
       notification.classList.add('fade-out');
       setTimeout(() => {
-        document.body.removeChild(notification);
+        if (notification.parentNode) {
+          document.body.removeChild(notification);
+        }
       }, 300);
     }, 3000);
   }

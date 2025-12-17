@@ -80,13 +80,14 @@ class OfflineSyncManager {
         job_title TEXT NOT NULL,
         location TEXT,
         data TEXT,
-        last_synced_at INTEGER
+        last_synced_at INTEGER,
+        UNIQUE(date, job_title)
       )`,
 
       // Job cards table - stores job card information
       `CREATE TABLE IF NOT EXISTS job_cards (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        job_number TEXT NOT NULL,
+        job_number TEXT NOT NULL UNIQUE,
         client TEXT,
         data TEXT,
         status TEXT DEFAULT 'active',
@@ -430,7 +431,7 @@ class OfflineSyncManager {
         "SELECT COUNT(*) as count FROM audits WHERE status = 'pending'"
       );
       const jobCards = await this.db.query(
-        "SELECT COUNT(*) as count FROM job_cards WHERE synced_at IS NULL AND status = 'pending'"
+        "SELECT COUNT(*) as count FROM job_cards WHERE status = 'pending' AND synced_at IS NULL"
       );
 
       return {

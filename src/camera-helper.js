@@ -160,6 +160,9 @@ class CameraHelper {
 
   /**
    * Compress a photo if it's too large
+   * NOTE: This is a placeholder implementation. Actual compression is handled by
+   * the Capacitor Camera plugin through the 'quality' parameter (80%).
+   * For additional compression, implement canvas-based compression in the browser.
    */
   async compressPhoto(dataUrl, targetQuality = 80) {
     try {
@@ -170,14 +173,13 @@ class CameraHelper {
         return dataUrl;
       }
 
-      // For web-based compression, we'd use canvas
-      // This is a placeholder for the actual compression logic
-      console.log('[CameraHelper] Photo compression would be applied here');
+      console.log('[CameraHelper] Photo size:', this.formatSize(size));
+      console.warn('[CameraHelper] Additional compression not implemented. Use lower quality setting in getPhoto()');
       
-      // In a real implementation, you would:
-      // 1. Create an Image element
-      // 2. Draw it to a canvas with reduced quality
-      // 3. Export as data URL with lower quality
+      // TODO: Implement canvas-based compression if needed:
+      // 1. Create an Image element from dataUrl
+      // 2. Draw it to a canvas with reduced dimensions
+      // 3. Export as data URL with lower quality using canvas.toDataURL('image/jpeg', quality)
       
       return dataUrl;
     } catch (error) {

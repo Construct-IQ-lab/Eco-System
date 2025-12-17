@@ -1,0 +1,41 @@
+{
+  "name": "eco-system-mobile",
+  "version": "1.0.0",
+  "description": "Eco-System Mobile App with Offline Sync - Field worker schedules, job cards, and audit creation",
+  "main": "index.html",
+  "scripts": {
+    "cap:init": "cap init",
+    "cap:add:android": "cap add android",
+    "cap:add:ios": "cap add ios",
+    "cap:copy": "cap copy",
+    "cap:sync": "cap sync",
+    "cap:open:android": "cap open android",
+    "cap:open:ios": "cap open ios",
+    "start": "npx serve .",
+    "build": "echo 'No build step required for static HTML/JS'"
+  },
+  "keywords": [
+    "capacitor",
+    "mobile",
+    "offline",
+    "sync",
+    "construction",
+    "field-worker"
+  ],
+  "author": "Construct-IQ-lab",
+  "license": "ISC",
+  "dependencies": {
+    "@capacitor/android": "^5.0.0",
+    "@capacitor/app": "^5.0.0",
+    "@capacitor/camera": "^5.0.0",
+    "@capacitor/core": "^5.0.0",
+    "@capacitor/filesystem": "^5.0.0",
+    "@capacitor/ios": "^5.0.0",
+    "@capacitor/network": "^5.0.0",
+    "@capacitor/preferences": "^5.0.0",
+    "@capacitor-community/sqlite": "^5.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^5.0.0"
+  }
+}
